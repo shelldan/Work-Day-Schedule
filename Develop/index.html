@@ -39,7 +39,7 @@
       <form>
         <div class="form-row" id="nine">
           <div class="col-1"><label class="form-control" id="9">9 am</label></div>
-          <div class="col-10"><input type="text" class="form-control" id="enterTask-9" onkeyup='saveValue(this);'></div>
+          <div class="col-10"><input type="text" class="form-control" id="enterTask-9"></div>
           <div class="col-1"><button id="submitBtn-9">submit</button></div>
         </div>
       </form>
@@ -59,25 +59,5 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./script.js"></script>
-    <script type="text/javascript">
-      document.getElementById("enterTask-9").value = getSavedValue("enterTask-9");    // set the value to this input
-    
-      /* Here you can add more inputs to set value. if it's saved */
-
-      //Save the value function - save it to localStorage as (ID, VALUE)
-      function saveValue(e){
-          var id = e.id;  // get the sender's id to save it . 
-          var val = e.value; // get the value. 
-          localStorage.setItem(id, val);// Every time user writing something, the localStorage's value will override . 
-      }
-
-      //get the saved value function - return the value of "v" from localStorage. 
-      function getSavedValue  (v){
-          if (!localStorage.getItem(v)) {
-              return "";// You can change this to your default value. 
-          }
-          return localStorage.getItem(v);
-      }
-    </script>
   </body>
 </html>

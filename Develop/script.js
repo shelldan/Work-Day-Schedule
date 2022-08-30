@@ -13,23 +13,8 @@ $("#currentDay").text(moment(today).format('MMM Do YYYY, h:mm:ss a'))
 
 // submit button, not finish it yet 
 
-
-// submitBtn_9.addEventListener('click',function(e){
-//   e.preventDefault();
-//   var savedTask = JSON.parse(localStorage.getItem("savedTask"));
-//   var currentInput = enterTaskEl_9.value.trim();
-//   var currentTask = {
-//     task: currentInput,
-//     time: '9am'
-//   };
-
-//   savedTask.push(currentTask);
-//   localStorage.setItem('savedTask', JSON.stringify(savedTask));
-// });
-
-
-enterTaskEl_9.value = getSavedValue("txt_1");    // set the value to this input
-
+enterTaskEl_9.value = getSavedValue("enterTask-9");// set the value to this input
+    
 /* Here you can add more inputs to set value. if it's saved */
 
 //Save the value function - save it to localStorage as (ID, VALUE)
@@ -40,41 +25,14 @@ function saveValue(e){
 }
 
 //get the saved value function - return the value of "v" from localStorage. 
-function getSavedValue  (v){
+function getSavedValue(v){
     if (!localStorage.getItem(v)) {
-        return "";// You can change this to your defualt value. 
+        return "";// You can change this to your default value. 
     }
     return localStorage.getItem(v);
 }
 
-submitBtn_9.addEventListener('keyup',saveValue(this))
-
-
-// submitBtn_10.addEventListener('click',function(e){
-//   e.preventDefault();
-//   localStorage.setItem('task',enterTaskEl_10.value);
-//   localStorage.setItem('time','10am')
-//   // enterTaskEl.value = ''
-// });
-
-
-
-
-// edit content, not finish it yet 
-// function set(){
-//     var sendJSON = JSON.stringify(allMovie);
-//     localStorage.setItem('allMovie',sendJSON)
-// }
-
-
-// function get(){
-//     var getJSON = localStorage.getItem('allMovie');
-//     if (getJSON) {
-//         allMovie = JSON.parse(getJSON)
-//     }
-// }
-
-
+submitBtn_9.addEventListener('click',saveValue(this))
 
 // colorcode 
 // var currentHour = (new Date()).getHours();
