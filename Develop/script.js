@@ -13,26 +13,50 @@ $("#currentDay").text(moment(today).format('MMM Do YYYY, h:mm:ss a'))
 
 // submit button, not finish it yet 
 
-// editBtnEl.on('submit',handleEventSubmit)
 
-// function handleEventSubmit (event){
-//     event.preventDefault();
-//     // 
-// }
+// submitBtn_9.addEventListener('click',function(e){
+//   e.preventDefault();
+//   var savedTask = JSON.parse(localStorage.getItem("savedTask"));
+//   var currentInput = enterTaskEl_9.value.trim();
+//   var currentTask = {
+//     task: currentInput,
+//     time: '9am'
+//   };
 
-submitBtn_9.addEventListener('click',function(e){
-  e.preventDefault();
-  localStorage.setItem('task',enterTaskEl_9.value);
-  localStorage.setItem('time','9am')
-  // enterTaskEl.value = ''
-});
+//   savedTask.push(currentTask);
+//   localStorage.setItem('savedTask', JSON.stringify(savedTask));
+// });
 
-submitBtn_10.addEventListener('click',function(e){
-  e.preventDefault();
-  localStorage.setItem('task',enterTaskEl_10.value);
-  localStorage.setItem('time','10am')
-  // enterTaskEl.value = ''
-});
+
+enterTaskEl_9.value = getSavedValue("txt_1");    // set the value to this input
+
+/* Here you can add more inputs to set value. if it's saved */
+
+//Save the value function - save it to localStorage as (ID, VALUE)
+function saveValue(e){
+    var id = e.id;  // get the sender's id to save it . 
+    var val = e.value; // get the value. 
+    localStorage.setItem(id, val);// Every time user writing something, the localStorage's value will override . 
+}
+
+//get the saved value function - return the value of "v" from localStorage. 
+function getSavedValue  (v){
+    if (!localStorage.getItem(v)) {
+        return "";// You can change this to your defualt value. 
+    }
+    return localStorage.getItem(v);
+}
+
+submitBtn_9.addEventListener('keyup',saveValue(this))
+
+
+// submitBtn_10.addEventListener('click',function(e){
+//   e.preventDefault();
+//   localStorage.setItem('task',enterTaskEl_10.value);
+//   localStorage.setItem('time','10am')
+//   // enterTaskEl.value = ''
+// });
+
 
 
 
