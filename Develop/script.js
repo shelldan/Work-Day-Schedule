@@ -1,8 +1,8 @@
 var today = new Date();
-var colorCode = document.querySelector(".colorCode"); //DOM selector method 
+//var colorCode = document.querySelector(".colorCode"); //DOM selector method 
 //var taskInput= document.querySelector('.task');
-var submitBtn = document.querySelector('.submitBtn');
-var hour = ['9AM','10AM','11AM','12PM','1PM','2PM','3PM','4PM','5PM']; // hour variable 
+//var submitBtn = document.querySelector('.submitBtn');
+//var hour = ['9AM','10AM','11AM','12PM','1PM','2PM','3PM','4PM','5PM']; // hour variable 
 var currentHour = (new Date()).getHours();
 
 //console.log(taskInput)
@@ -36,8 +36,8 @@ $(document).ready(function(){
 
       var savedKeyName = localStorage.getItem(keyValue)
       //console.log(savedKeyName)
-      ($(this).parent().prev().children.val()) = savedKeyName
-      
+      var textareaInput = ($(this).parent().prev().children())
+      textareaInput.val(savedKeyName)
     });
   });
 
@@ -45,13 +45,14 @@ $(document).ready(function(){
   $('.hour').each(function(){
     //console.log($(this).prop('id')) // this referring to the .hour class in the label element 
     var hourValue = parseInt($(this).prop('id'));
-    //var color = $(this).parent().next().children().html();
+    //var textareaColor = $(this).parent().next().children().html();
+    var textareaColor = ($(this).parent().next().children())
     if (currentHour > hourValue){
-        $(this).parent().next().children().addClass('past') //
+        textareaColor.addClass('past') //
     } else if (currentHour < hourValue) {
-        $(this).parent().next().children().addClass('future') //
+        textareaColor.addClass('past').addClass('future') //
     } else if (currentHour = hourValue) {
-        $(this).parent().next().children().addClass('present') //
+      textareaColor.addClass('past').addClass('present') //
     }
   });
 })
