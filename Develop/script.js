@@ -1,3 +1,5 @@
+$(“#tenAM”).val(localStorage.getItem(“10AM to do”));
+
 var today = new Date();
 //var colorCode = document.querySelector(".colorCode"); //DOM selector method 
 //var taskInput= document.querySelector('.task');
@@ -58,13 +60,15 @@ $(document).ready(function(){
 })
 
 
-$('.task').each(function(){
-  var savedKeyValue = ($(this).parent().prev().children().html() + ' to do')
-  console.log(savedKeyValue)
-  var savedKeyName = localStorage.getItem(savedKeyValue)
-  $(this).val(savedKeyName)
-})
 
+// $('.task').each(function(){
+//   var savedKeyValue = ($(this).parent().prev().children().html() + ' to do')
+//   console.log(savedKeyValue)
+//   var savedKeyName = localStorage.getItem(savedKeyValue)
+//   $(this).val(savedKeyName)
+// })
+
+// console.log($('.hour') + 'to do')
 
 // let text = document.querySelector('.hour').parentElement.nextElementSibling.firstElementChild.innerHTML
 // console.log(text)
