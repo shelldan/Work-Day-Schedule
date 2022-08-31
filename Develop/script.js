@@ -34,7 +34,7 @@ $(document).ready(function(){
       var keyName = ($(this).parent().prev().children().val());
       localStorage.setItem(keyValue,keyName);
 
-      var savedKeyName = localStorage(keyValue)
+      var savedKeyName = localStorage.getItem(keyValue)
       console.log(savedKeyName)
       
     });
@@ -53,9 +53,6 @@ $(document).ready(function(){
         $(this).parent().next().children().addClass('present') //
     }
   });
-
-  
-
 })
   
 
