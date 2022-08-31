@@ -25,23 +25,25 @@ renderLastSavedValue(); //why do we need this function here? why do we need to c
 // can't get the user input after refresh the page
 
 // colorCode 
+// var currentHour = (new Date()).getHours();
+// $('.colorCode')
+//   .each(function colorCode(){
+//     var val = parseInt($(this).prop('id'));
+//     if(val > currentHour && val < currentHour + 6){
+//       $(this).css('background-color','Blue'); // future
+//     }else if(val < currentHour && val > currentHour-6){
+//       $(this).css('background-color','Red'); // past
+//     }else if(val === currentHour){
+//       $(this).css('background-color','Green'); // present 
+//     }else{
+//       $(this).css('background-color','White');
+//     }
+//   });
+
 var currentHour = (new Date()).getHours();
-$('.colorCode')
-  .each(function(){
-    var val = parseInt($(this).prop('id'));
-    if(val > currentHour && val < currentHour + 6){
-      $(this).css('background-color','Blue'); // future
-    }else if(val < currentHour && val > currentHour-6){
-      $(this).css('background-color','Red'); // past
-    }else if(val === currentHour){
-      $(this).css('background-color','Green'); // present 
-    }else{
-      $(this).css('background-color','White');
-    }
-  });
 
 
-  
+
 
 // client-side means the action takes place on the user's (the client's) computer
 // server-side means that the action takes place on a web server 
