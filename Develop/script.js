@@ -1,54 +1,44 @@
-const today = new Date();
-const editBtnEl = $('.edit_btn')
-const colorCode = document.getElementsByClassName(".colorCode");
-const editContentEl = $(".edit_cont")
-const enterTaskEl_9 = document.getElementById('enterTask-9')
-const enterTaskEl_10 = document.getElementById('enterTask-10')
-
-const submitBtn_9 = document.getElementById('submitBtn-9')
-const submitBtn_10 = document.getElementById('submitBtn-10')
+var today = new Date();
+var colorCode = document.querySelector(".colorCode"); //DOM selector method 
+var taskInput= document.getElementById('task');
+var submitBtn = document.getElementById('submitBtn');
+var hour = ['9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm']; // hour variable 
 
 // Date and Time 
 $("#currentDay").text(moment(today).format('MMM Do YYYY, h:mm:ss a'))
 
-// submit button, not finish it yet 
+//when click submit button, save the task to the local storage 
+submitBtn.addEventListener('click',function(event){
+    event.preventDefault();
+    var task = document.getElementById('task').value;
+    localStorage.setItem('task',task) //setItem(keyName, keyValue), keyName should be the timeblock, and keyValue should be the task 
+    renderLastSavedValue();        
+})
 
-enterTaskEl_9.value = getSavedValue("enterTask-9");// set the value to this input
-    
-/* Here you can add more inputs to set value. if it's saved */
-
-//Save the value function - save it to localStorage as (ID, VALUE)
-function saveValue(e){
-    var id = e.id;  // get the sender's id to save it . 
-    var val = e.value; // get the value. 
-    localStorage.setItem(id, val);// Every time user writing something, the localStorage's value will override . 
+function renderLastSavedValue(){
+    var savedTask = localStorage.getItem('task');
+    taskInput.textContent = savedTask;
 }
 
-//get the saved value function - return the value of "v" from localStorage. 
-function getSavedValue(v){
-    if (!localStorage.getItem(v)) {
-        return "";// You can change this to your default value. 
+renderLastSavedValue(); //why do we need this function here? why do we need to call the function ?
+
+// can't get the user input after refresh the page 
+
+// colorCode 
+var currentHour = (new Date()).getHours();
+$('.colorCode')
+  .each(function(){
+    var val = parseInt($(this).prop('id'));
+    if(val > currentHour && val < currentHour + 6){
+      $(this).css('background-color','Blue');
+    }else if(val < currentHour && val > currentHour-6){
+      $(this).css('background-color','Red');
+    }else if(val === currentHour){
+      $(this).css('background-color','Green');
+    }else{
+      $(this).css('background-color','White');
     }
-    return localStorage.getItem(v);
-}
-
-submitBtn_9.addEventListener('click',saveValue(this))
-
-// colorcode 
-// var currentHour = (new Date()).getHours();
-// $('.colorcode')
-//   .each(function(){
-//     var val = parseInt($(this).prop('id'));
-//     if(val > currentHour && val < currentHour + 6){
-//       $(this).css('background-color','Blue');
-//     }else if(val < currentHour && val > currentHour-6){
-//       $(this).css('background-color','Red');
-//     }else if(val === currentHour){
-//       $(this).css('background-color','Green');
-//     }else{
-//       $(this).css('background-color','White');
-//     }
-//   });
+  });
 
 
 
