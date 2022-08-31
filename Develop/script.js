@@ -34,10 +34,10 @@ $(document).ready(function(){
       var keyName = ($(this).parent().prev().children().val());
       localStorage.setItem(keyValue,keyName);
 
-      var savedKeyName = localStorage.getItem(keyValue)
-      //console.log(savedKeyName)
-      var textareaInput = ($(this).parent().prev().children())
-      $(textareaInput).val(savedKeyName)
+      // var savedKeyName = localStorage.getItem(keyValue)
+      // //console.log(savedKeyName)
+      // var textareaInput = ($(this).parent().prev().children())
+      // $(textareaInput).val(savedKeyName)
     });
   });
 
@@ -56,8 +56,14 @@ $(document).ready(function(){
     }
   });
 })
-  
 
+
+$('.task').each(function(){
+  var savedKeyValue = ($(this).parent().prev().children().html() + ' to do')
+  console.log(savedKeyValue)
+  var savedKeyName = localStorage.getItem(savedKeyValue)
+  $(this).val(savedKeyName)
+})
 
 
 // let text = document.querySelector('.hour').parentElement.nextElementSibling.firstElementChild.innerHTML
