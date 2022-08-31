@@ -37,7 +37,7 @@ $(document).ready(function(){
       var savedKeyName = localStorage.getItem(keyValue)
       //console.log(savedKeyName)
       var textareaInput = ($(this).parent().prev().children())
-      textareaInput.val(savedKeyName)
+      $(textareaInput).val(savedKeyName)
     });
   });
 
