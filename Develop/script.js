@@ -35,6 +35,7 @@ $(document).ready(function(){
       localStorage.setItem(keyValue,keyName);
 
       var savedKeyName = localStorage.getItem(keyValue)
+      //console.log(savedKeyName)
       ($(this).parent().prev().children.val()) = savedKeyName
       
     });
