@@ -64,16 +64,24 @@ textarea {
   border-bottom-right-radius: 15px;
   background-color: #06aed5;
   color: white;
+  height: 100%;
+  width:100%;
 }
 
-.submitBtn i:hover {
+.submitBtn ion-icon:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
 }
 
-/* edit */ 
+.col-1 .hour {
+  border-bottom: 0px;
+  border-right:0px;
+  border-left:0;
+  text-align:right;
+}
 
-.container .row .col-1,
-.container .row .col-10 {
- border: 1px solid #333;
+.form-row>.col, 
+.form-row>[class*=col-] {
+  padding-right: 0px;
+  padding-left: 0px;
 }

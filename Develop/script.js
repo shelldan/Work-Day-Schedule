@@ -1,40 +1,8 @@
-$("#nineAM").val(localStorage.getItem("9AM to do"))
-$("#tenAM").val(localStorage.getItem("10AM to do"))
-$("#elevenAM").val(localStorage.getItem("11AM to do"))
-$("#twelvePM").val(localStorage.getItem("12PM to do"))
-$("#onePM").val(localStorage.getItem("1PM to do"))
-$("#twoPM").val(localStorage.getItem("2PM to do"))
-$("#threePM").val(localStorage.getItem("3PM to do"))
-$("#fourPM").val(localStorage.getItem("4PM to do"))
-$("#fivePM").val(localStorage.getItem("5PM to do"))
-
 var today = new Date();
-//var colorCode = document.querySelector(".colorCode"); //DOM selector method 
-//var taskInput= document.querySelector('.task');
-//var submitBtn = document.querySelector('.submitBtn');
-//var hour = ['9AM','10AM','11AM','12PM','1PM','2PM','3PM','4PM','5PM']; // hour variable 
 var currentHour = (new Date()).getHours();
-
-//console.log(taskInput)
 
 // Date and Time 
 $("#currentDay").text(moment(today).format('MMM Do YYYY, h:mm:ss a'))
-
-//when click submit button, save the task to the local storage 
-// submitBtn.addEventListener('click',function(event){
-//     event.preventDefault();
-//     var task = document.getElementById('task').value;
-//     localStorage.setItem('task',JSON.stringify(task)) //setItem(keyName, keyValue), keyName should be the timeblock, and keyValue should be the task 
-//     renderLastSavedValue();        
-// })
-
-// function renderLastSavedValue(){
-//     var savedTask = JSON.parse(localStorage.getItem('task'));
-//     taskInput.textContent = savedTask;
-// }
-
-// renderLastSavedValue(); //why do we need this function here? why do we need to call the function ?
-
 
 $(document).ready(function(){
 
@@ -44,10 +12,6 @@ $(document).ready(function(){
       var keyName = ($(this).parent().prev().children().val());
       localStorage.setItem(keyValue,keyName);
 
-      // var savedKeyName = localStorage.getItem(keyValue)
-      // //console.log(savedKeyName)
-      // var textareaInput = ($(this).parent().prev().children())
-      // $(textareaInput).val(savedKeyName)
     });
   });
 
@@ -68,20 +32,47 @@ $(document).ready(function(){
 })
 
 
-// why couldn't work? not even the console.log? 
+// why couldn't work? not even the console.log? because sometime the element is too nested
 
-// $('.task').each(function(){
-//   var savedKeyValue = ($(this).parent().prev().children().html() + ' to do')
-//   console.log(savedKeyValue)
-//   var savedKeyName = localStorage.getItem(savedKeyValue)
-//   $(this).val(savedKeyName)
-// })
+$('.task').each(function(){
 
-// console.log($('.hour') + 'to do')
+  //console.log($(this).attr('id'))
+  var savedKeyValue = ($(this).attr('id'))
+  //console.log(savedKeyValue)
+
+  var savedKeyName = localStorage.getItem(savedKeyValue)
+  //console.log(savedKeyName)
+  var textareaInput = ($(this).children())
+  //console.log(textareaInput)
+  $(textareaInput).val(savedKeyName)
+
+})
+
+
+
+
+
+
+
 
 // let text = document.querySelector('.hour').parentElement.nextElementSibling.firstElementChild.innerHTML
 // console.log(text)
 
 // client-side means the action takes place on the user's (the client's) computer
 // server-side means that the action takes place on a web server 
-// localStorage is a property that allow JavaScript and apps to save key-value pairs in a web browser with no expiration date. 
+// localStorage is a property that allow JavaScript and apps to save key-value pairs in a web browser with no expiration date.
+
+//when click submit button, save the task to the local storage 
+// submitBtn.addEventListener('click',function(event){
+//     event.preventDefault();
+//     var task = document.getElementById('task').value;
+//     localStorage.setItem('task',JSON.stringify(task)) //setItem(keyName, keyValue), keyName should be the timeblock, and keyValue should be the task 
+//     renderLastSavedValue();        
+// })
+
+// function renderLastSavedValue(){
+//     var savedTask = JSON.parse(localStorage.getItem('task'));
+//     taskInput.textContent = savedTask;
+// }
+
+// renderLastSavedValue(); //why do we need this function here? why do we need to call the function ?
