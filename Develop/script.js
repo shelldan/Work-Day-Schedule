@@ -1,4 +1,12 @@
-$(“#tenAM”).val(localStorage.getItem(“10AM to do”));
+$("#nineAM").val(localStorage.getItem("9AM to do"))
+$("#tenAM").val(localStorage.getItem("10AM to do"))
+$("#elevenAM").val(localStorage.getItem("11AM to do"))
+$("#twelvePM").val(localStorage.getItem("12PM to do"))
+$("#onePM").val(localStorage.getItem("1PM to do"))
+$("#twoPM").val(localStorage.getItem("2PM to do"))
+$("#threePM").val(localStorage.getItem("3PM to do"))
+$("#fourPM").val(localStorage.getItem("4PM to do"))
+$("#fivePM").val(localStorage.getItem("5PM to do"))
 
 var today = new Date();
 //var colorCode = document.querySelector(".colorCode"); //DOM selector method 
@@ -60,6 +68,7 @@ $(document).ready(function(){
 })
 
 
+// why couldn't work? not even the console.log? 
 
 // $('.task').each(function(){
 //   var savedKeyValue = ($(this).parent().prev().children().html() + ' to do')
