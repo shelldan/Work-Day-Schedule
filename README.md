@@ -34,7 +34,7 @@ THEN the saved events persist
 
 
 ## Link to Deployed Application 
-https://shelldan.github.io/Work-Day-Schedule/
+https://shelldan.github.io/work-day-schedule/
 
 ## Screenshot of the Application 
 
